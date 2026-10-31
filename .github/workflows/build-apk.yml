@@ -25,10 +25,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install project dependencies
+      - name: Install Node Dependencies
         run: npm install --legacy-peer-deps
 
       - name: Build Web Production Assets
@@ -37,13 +34,16 @@ jobs:
       - name: Sync Capacitor Android Project
         run: npx cap sync android
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Make Gradlew Executable
         run: chmod +x android/gradlew
 
       - name: Compile Debug APK
         run: |
           cd android
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
