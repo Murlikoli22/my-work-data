@@ -1,0 +1,6 @@
+{
+  "name": "Shree Gayatri Electricals - My Work Data",
+  "description": "Complete workshop management app for electrical motor rewinding, job cards, technical winding specs, invoices, challans, staff wages, and profit tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
